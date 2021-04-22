@@ -1,6 +1,7 @@
 import requests
 import  json
 from credentials import api_key
+from credentials import org_id
 
 
 API_KEY = api_key() # Call the API Key from credentials Module
@@ -8,12 +9,13 @@ API_KEY = api_key() # Call the API Key from credentials Module
 BASE_URL = 'https://api.meraki.com/api/v1/'
 
 #Request parameters
-url_command = 'organizations/{}/devices/statuses'
+url_command = f'organizations/{org_id()}/devices/statuses'
 
 #BASE_URL
 request_url = BASE_URL + url_command
 
-def get_equipment():
+def get_equipment(status):
+    equipmentstatus = str(status)
     header = {
         'X-Cisco-Meraki-API-Key' : API_KEY,
     }
@@ -21,11 +23,13 @@ def get_equipment():
 
     results = r.json()
     #print(json.dumps(result, indent=4))
-
+    i = []
     for data in results:   
         # print(data)
         for k,v in data.items():
-            if v == '': #Check if equal to value pair
-                return json.dumps(data,indent=2)
+            if v == equipmentstatus: #Check if equal to value pair
+                result =  i.append(data) #append()
+    return i
 
-print(get_equipment())
+status = input("Please input 'online' or 'offline' equipment : ")
+print(json.dumps(get_equipment(status),indent=2))
