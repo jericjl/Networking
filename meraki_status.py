@@ -7,7 +7,7 @@ API_KEY = api_key() # Call the API Key from credentials Module
 BASE_URL = 'https://api.meraki.com/api/v1/'
 
 #Request parameters
-url_command = 'organizations/916638/devices/statuses'
+url_command = 'organizations/{}/devices/statuses'
 
 #BASE_URL
 request_url = BASE_URL + url_command
