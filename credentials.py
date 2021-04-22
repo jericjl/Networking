@@ -1,2 +1,5 @@
 def api_key():
-    return ''
+    return '<API KEY>'
+
+def org_id():
+    return '<Organization ID>'
