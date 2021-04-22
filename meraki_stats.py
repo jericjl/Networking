@@ -24,12 +24,14 @@ def get_equipment(status):
     results = r.json()
     #print(json.dumps(result, indent=4))
     i = []
-    for data in results:   
+
+    for data in results:   # Extract data from the list
         # print(data)
-        for k,v in data.items():
-            if v == equipmentstatus: #Check if equal to value pair
-                result =  i.append(data) #append()
+        for k,v in data.items(): #Extract data from Dictionary
+            if v == equipmentstatus: #Check if value is equal to key pair
+                result =  i.append(data) 
     return i
 
-status = input("Please input 'online' or 'offline' equipment : ")
-print(json.dumps(get_equipment(status),indent=2))
+status = input("Please input : ")
+
+print(json.dumps(get_equipment(status),indent=2)) #Print Result from get_equipment function
