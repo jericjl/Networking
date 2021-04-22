@@ -1,2 +1,2 @@
-def credentials_key():
+def api_key():
     return ''
