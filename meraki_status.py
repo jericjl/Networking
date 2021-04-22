@@ -2,7 +2,7 @@ import requests
 import  json
 from credentials import api_key
 
-API_KEY = api_key()
+API_KEY = api_key() # Call the API Key from credentials Module
 #SECRET_KEY = '*****'
 BASE_URL = 'https://api.meraki.com/api/v1/'
 
