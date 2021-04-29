@@ -13,7 +13,7 @@ def reboot_devices(serial_numbers):
 
     BASE_URL = 'https://api.meraki.com/api/v1'
     
-    stats = []  
+    equipment_list = []  
     #request_url = BASE_URL + url_command
     for serial in sn:
 
@@ -25,8 +25,8 @@ def reboot_devices(serial_numbers):
         r = requests.post(request_url,headers=header) #Execute request
         result = r.json()
         result.update(SN = serial) #Add key value pair to dictionary
-        stats.append(result)
-    return stats
+        equipment_list.append(result)
+    return equipment_list
 
 
 
