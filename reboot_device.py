@@ -2,14 +2,16 @@ import requests
 import  json
 from credentials import api_key
 
-serial = '<SerialNumber>'
+serial = str(input("Please Input serial number : "))
 
 API_KEY = api_key() # Call the API Key from credentials Module
 #SECRET_KEY = '*****'
 BASE_URL = 'https://api.meraki.com/api/v1/'
 
 #Request parameters
-url_command = f'/devices/{serial}/reboot'
+url_command = f'/devices/{serial}/switch/ports' 
+                
+                #'/devices/{serial}/reboot' #use this to reboot devices
 
 #BASE_URL
 request_url = BASE_URL + url_command
