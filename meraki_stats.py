@@ -29,7 +29,7 @@ def get_equipment(status):
         # print(data)
         for k,v in data.items(): #Extract data from Dictionary
             if v == equipmentstatus: #Check if value is equal to key pair
-                result =  i.append(data) 
+                result =  equipment_list.append(data) 
     return equipment_list
 
 status = input("Please input : ")
